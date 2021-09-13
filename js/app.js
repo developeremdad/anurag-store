@@ -10,7 +10,7 @@ loadProducts();
 const showProducts = (products) => {
   const allProducts = products.map((pd) => pd);
   for (const product of allProducts) {
-    const title = product.title.slice(0, 21);
+    const title = product.title.slice(0, 25);
     const rate = Math.round(product.rating.rate);
     const rateCount = product.rating.count;
     const image = product.image;
@@ -23,9 +23,9 @@ const showProducts = (products) => {
       <h5>${title}</h5>
       <p>Category: ${product.category}</p>
 
-      <div class="row d-flex align-items-center mb-2">
+      <div class="row p-3 d-flex align-items-center justify-content-around mb-1">
         <div class="side">
-          <div><span class="d-flex" id="star-icon"> ${rate}  <i class="fas fa-star"></i></span></div>
+          <div class="d-flex">${rate}<span class="ms-2" id="star-icon"><i class="fas fa-star"></i></span></div>
         </div>
         <div class="middle">
           <div class="bar-container">
@@ -33,11 +33,11 @@ const showProducts = (products) => {
           </div>
         </div>
         <div class="side right">
-          <div>${rateCount}</div>
+          <div class="d-flex">${rateCount}<span class="ms-2" id="star-icon"><i class="fas fa-users"></i></span></div>
         </div>
       </div>
 
-        <h4>Price: $ ${product.price}</h4>
+        <h4 class="mb-1">Price: $ ${product.price}</h4>
         <button onclick="addToCart(${product.id},${product.price})" id="addToCart-btn" class="add-to-cart-btn common-btn-style">Add To Cart</button>
         <button class="details-btn common-btn-style">Details</button>
       </div>
@@ -78,18 +78,18 @@ const updateTaxAndCharge = () => {
   const priceConverted = getInputValue("price");
   if (priceConverted > 500) {
     setInnerText("delivery-charge", 60);
-    const totalTax = (priceConverted * 0.4);
-    setInnerText("total-tax", totalTax);
+    setInnerText("total-tax", priceConverted * 0.4);
   }
   else if (priceConverted > 400) {
     setInnerText("delivery-charge", 50);
-    const totalTax = (priceConverted * 0.3);
-    setInnerText("total-tax", totalTax);
+    setInnerText("total-tax", priceConverted * 0.3);
   }
   else if (priceConverted > 200) {
     setInnerText("delivery-charge", 30);
-    const totalTax = (priceConverted * 0.2);
-    setInnerText("total-tax", totalTax);
+    setInnerText("total-tax", priceConverted * 0.2);
+  }
+  else {
+    setInnerText("delivery-charge", 20);
   }
 };
 
@@ -100,3 +100,19 @@ const updateTotal = () => {
     getInputValue("total-tax");
   document.getElementById("total").innerText = grandTotal.toFixed(2);
 };
+
+// buy total products 
+
+const makeEmptyFile = (id) => {
+  document.getElementById(id).innerText = 0;
+}
+
+const buyProducts = () => {
+  makeEmptyFile('total-Products');
+  count = 0;
+  makeEmptyFile('price');
+  makeEmptyFile('delivery-charge');
+  makeEmptyFile('total-tax');
+  makeEmptyFile('total');
+  alert('Thank You For Buy Our Products');
+}
