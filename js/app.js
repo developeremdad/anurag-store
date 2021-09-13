@@ -10,10 +10,9 @@ loadProducts();
 const showProducts = (products) => {
   const allProducts = products.map((pd) => pd);
   for (const product of allProducts) {
-    // console.log(product.rating.rate, product.rating.count);
+    const title = product.title.slice(0, 21);
     const rate = Math.round(product.rating.rate);
     const rateCount = product.rating.count;
-    console.log(rate);
     const image = product.image;
     const div = document.createElement("div");
     div.classList.add("product");
@@ -21,7 +20,7 @@ const showProducts = (products) => {
       <div>
     <img class="product-image img-fluid" src=${image}></img>
       </div>
-      <h5>${product.title}</h5>
+      <h5>${title}</h5>
       <p>Category: ${product.category}</p>
 
       <div class="row d-flex align-items-center mb-2">
@@ -38,9 +37,10 @@ const showProducts = (products) => {
         </div>
       </div>
 
-      <h4>Price: $ ${product.price}</h4>
-      <button onclick="addToCart(${product.id},${product.price})" id="addToCart-btn" class="buy-now btn btn-success">add to cart</button>
-      <button id="details-btn" class="btn btn-danger">Details</button></div>
+        <h4>Price: $ ${product.price}</h4>
+        <button onclick="addToCart(${product.id},${product.price})" id="addToCart-btn" class="add-to-cart-btn common-btn-style">Add To Cart</button>
+        <button class="details-btn common-btn-style">Details</button>
+      </div>
       `;
     document.getElementById("all-products").appendChild(div);
   }
@@ -91,20 +91,6 @@ const updateTaxAndCharge = () => {
     const totalTax = (priceConverted * 0.2);
     setInnerText("total-tax", totalTax);
   }
-    
-  // else if (priceConverted > 200) {
-  //   setInnerText("delivery-charge", 30);
-  //   setInnerText("total-tax", priceConverted * 0.2);
-  // }
-  // if (priceConverted > 400) {
-  //   setInnerText("delivery-charge", 50);
-  //   setInnerText("total-tax", priceConverted * 0.3);
-  // }
-  // if (priceConverted > 500) {
-  //   setInnerText("delivery-charge", 60);
-  //   setInnerText("total-tax", priceConverted * 0.4);
-  // }
-
 };
 
 //grandTotal update function
