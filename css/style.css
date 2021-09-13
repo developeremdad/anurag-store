@@ -27,10 +27,17 @@ body {
   padding: 5px 25px;
   transition: .4s;
 }
-
 .details-btn:hover {
   background-color: #4CAF50;
   color: white;
+}
+/* buy now button style  */
+.buy-btn{
+  border: 2px solid tomato;
+}
+.buy-btn:hover{
+  background-color: tomato;
+  color: #fff;
 }
 
 /* rating style  */
