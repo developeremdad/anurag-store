@@ -5,10 +5,11 @@ const loadProducts = () => {
     .then((data) => showProducts(data, "all-products"));
 };
 loadProducts();
-
-// search all category
+// search product category wise
 const loadCategoryProducts = () => {
   const searchName = document.getElementById('input-field').value;
+  document.getElementById('details-container').innerHTML = '';
+  document.getElementById('category-container').innerHTML = '';
   document.getElementById('all-products').innerHTML = '';
   const url = `https://fakestoreapi.com/products/category/${searchName}`;
   fetch(url)
