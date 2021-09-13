@@ -123,6 +123,7 @@ body {
   height: 150px;
 }
 .cart {
+  width: 350px;
   padding: 10px;
   background-color: #f6efc4;
   box-shadow: 10px 10px 20px gray;
