@@ -10,16 +10,35 @@ loadProducts();
 const showProducts = (products) => {
   const allProducts = products.map((pd) => pd);
   for (const product of allProducts) {
+    // console.log(product.rating.rate, product.rating.count);
+    const rate = Math.round(product.rating.rate);
+    const rateCount = product.rating.count;
+    console.log(rate);
     const image = product.image;
     const div = document.createElement("div");
     div.classList.add("product");
     div.innerHTML = `<div class="single-product">
       <div>
-    <img class="product-image" src=${image}></img>
+    <img class="product-image img-fluid" src=${image}></img>
       </div>
-      <h3>${product.title}</h3>
+      <h5>${product.title}</h5>
       <p>Category: ${product.category}</p>
-      <h2>Price: $ ${product.price}</h2>
+
+      <div class="row d-flex align-items-center mb-2">
+        <div class="side">
+          <div><span class="d-flex" id="star-icon"> ${rate}  <i class="fas fa-star"></i></span></div>
+        </div>
+        <div class="middle">
+          <div class="bar-container">
+            <div class="bar-${rate}"></div>
+          </div>
+        </div>
+        <div class="side right">
+          <div>${rateCount}</div>
+        </div>
+      </div>
+
+      <h4>Price: $ ${product.price}</h4>
       <button onclick="addToCart(${product.id},${product.price})" id="addToCart-btn" class="buy-now btn btn-success">add to cart</button>
       <button id="details-btn" class="btn btn-danger">Details</button></div>
       `;
