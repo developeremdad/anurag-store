@@ -10,8 +10,6 @@
   <!-- Latest compiled and minified CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
-  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-    integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" /> -->
 
   <!-- icon Library  -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -30,18 +28,29 @@
   <!-- seader section  -->
   <header class="w-50 mx-auto mt-4 mb-4">
     <div class="input-group mb-3">
-      <input id="input-field" type="search" class="form-control" placeholder="Search" aria-label="Search"
+      <input id="input-field" type="search" class="form-control" placeholder="Search Category" aria-label="Search"
         aria-describedby="button-addon2">
-      <button onclick="loadProducts()" class="btn btn-warning  border-warning" type="button"
+      <button onclick="loadCategoryProducts()" class="btn btn-warning  border-warning" type="button"
         id="search-btn">Search</button>
     </div>
   </header>
   <!-- website main part  -->
   <main>
+    <!-- show details product -->
+    <section class="container row mb-3">
+      <div id="details-container" class="col-lg-4 col-md-4 col-sm-12">
+      </div>
+      <!-- show category wise product  -->
+      <div class="col-lg-8 col-md-8 col-sm-12 text-center">
+        <div id="category-container" class="row row-cols-2">
+
+        </div>
+      </div>
+    </section>
     <!-- product display section  -->
     <section class="row mx-auto">
       <div class="col-md-9 col-lg-9 col-sm-7">
-        <div id="all-products" class="">
+        <div id="all-products">
 
         </div>
       </div>
